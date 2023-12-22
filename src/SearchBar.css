@@ -1,0 +1,55 @@
+/* SearchBar.css */
+.search-bar-container {
+  background: linear-gradient(to right, #00a8ff, #005082);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown {
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #5b8bd1;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  text-align: center;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%235b8bd1" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" /></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+}
+
+/* Stil pentru opțiunea cu valoarea vidă (""), care este textul butonului */
+.dropdown option[value=""] {
+  display: none;
+}
+
+.option {
+  display: none;
+}
+
+.oval-button {
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #00a8ff;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.oval-button:hover {
+  background-color: #3a6aaf;
+}
+

@@ -1,0 +1,23 @@
+/* HomePageStyles.css */
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.destination-image {
+  width: 27%;
+  height: 27%;
+  border-radius: 15px;
+  margin: 40px;
+  transition: transform 0.2s; /* Adăugat efect de tranziție */
+}
+
+.destination-image:hover {
+  transform: scale(1.05); /* Mărește imaginea la hover */
+}
+

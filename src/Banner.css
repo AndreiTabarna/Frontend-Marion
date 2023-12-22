@@ -1,0 +1,13 @@
+.banner-container {
+  height: 500px; /* Setează înălțimea maximă a banner-ului */
+  overflow: hidden; /* Ascunde conținutul care depășește înălțimea maximă */
+  display: flex;
+  align-items: center;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asigură acoperirea completă a containerului cu imaginea */
+}
+

@@ -1,0 +1,22 @@
+/* BackButton.css */
+
+.back-button {
+  background-color: #00a8ff;
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* Colțuri mai rotunde */
+  padding: 20px 30px; /* Ajustează dimensiunile butonului */
+  cursor: pointer;
+  font-size: 20px; /* Ajustează dimensiunea textului butonului */
+  transition: background-color 0.3s;
+  margin-top: 70px; /* Poziționează butonul mai jos */
+  margin-bottom: -30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-button:hover {
+  background-color: #0077cc;
+}
+

@@ -1,0 +1,53 @@
+/* Footer.css */
+
+#footerContainer {
+  background: linear-gradient(to bottom, #333, #222); /* Gradient de la #333 la #222 */
+  color: #ccc; /* culoare alb pentru text */
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-top-left-radius: 10px; /* Rotunjire colțuri sus-stânga */
+  border-top-right-radius: 10px; /* Rotunjire colțuri sus-dreapta */
+}
+
+#footerContainer div {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Afișează conținutul într-o coloană */
+}
+
+#footerContainer h3 {
+  font-size: 1em; /* dimensiune redusă a fontului */
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+#footerContainer p {
+  margin: 5px 0; /* spațiu redus între paragrafe */
+  color: #ccc;
+  font-size: 0.8em; /* dimensiune redusă a fontului */
+}
+
+#footerContainer a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#footerContainer a:hover {
+  text-decoration: underline;
+}
+
+/* Adaugă stiluri pentru responsive design */
+@media (max-width: 768px) {
+  #footerContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #footerContainer div {
+    width: 100%;
+  }
+}
+
