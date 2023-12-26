@@ -12,6 +12,87 @@ class ElementListCreateView(generics.ListCreateAPIView):
 
 class ImageListView(APIView):
     def get(self, request):
-        elements = Element.objects.all()
-        serializer = ImageSerializer(elements, many=True)
+        # Obține parametrii de filtrare din query string
+        oras_param = request.query_params.get('Oras', None)
+        tara_param = request.query_params.get('Tara', None)
+        transport_param = request.query_params.get('Transport', None)
+
+        # Filtrare în funcție de parametrii
+        queryset = Element.objects.all()
+        if oras_param:
+            queryset = queryset.filter(oras=oras_param)
+        if tara_param:
+            queryset = queryset.filter(tara=tara_param)
+        if transport_param:
+            queryset = queryset.filter(transport=transport_param)   
+
+        serializer = ImageSerializer(queryset, many=True)
         return Response(serializer.data)
+        
+class ElementDetailView(APIView):
+    def get(self, request, element_id):
+        try:
+            element = Element.objects.get(id=element_id)
+        except Element.DoesNotExist:
+            return Response({"error": "Element not found"}, status=404)
+
+        serializer = ElementSerializer(element)
+        return Response(serializer.data)
+        
+class UniqueValuesView(APIView):
+    def get(self, request):
+        # Obține toate valorile unice pentru 'tara', 'oras' și 'transport'
+        unique_tari = Element.objects.values_list('tara', flat=True).distinct()
+        unique_orase = self.get_unique_orase()
+        unique_transport = Element.objects.values_list('transport', flat=True).distinct()
+
+        response_data = {
+            'unique_tari': list(unique_tari),
+            'unique_orase': unique_orase,
+            'unique_transport': list(unique_transport),
+        }
+
+        return Response(response_data)
+
+    def get_unique_orase(self):
+        # Obține toate valorile pentru 'oras'
+        all_orase = Element.objects.values_list('oras', flat=True)
+        
+        # Concatenează toate valorile și împarte-le după virgulă
+        all_orase = ','.join(all_orase).split(',')
+        
+        # Elimină spațiile albe și obține valorile unice
+        unique_orase = set(map(str.strip, all_orase))
+
+        return list(unique_orase)
+        
+class SimilarElementsView(APIView):
+    def get(self, request, element_id):
+        try:
+            current_element = Element.objects.get(id=element_id)
+        except Element.DoesNotExist:
+            return Response({"error": "Element not found"}, status=404)
+
+        # Obține tariful pentru elementul curent (eliminând textul și păstrând doar numerele)
+        current_tarif = self.extract_tarif(current_element.tarif)
+
+        # Obține cele mai apropiate 4 elemente după tarif, excludând elementul curent
+        similar_elements = self.get_similar_elements(current_tarif, current_element)
+
+        # Serializare și răspuns API
+        serializer = ImageSerializer(similar_elements, many=True)
+        return Response(serializer.data)
+
+    def extract_tarif(self, tarif_text):
+        # Elimină textul și păstrează doar numerele
+        return int(''.join(filter(str.isdigit, tarif_text)))
+
+    def get_similar_elements(self, current_tarif, current_element):
+        # Obține toate elementele și sortează-le după diferența de tarif față de elementul curent
+        all_elements = Element.objects.exclude(id=current_element.id)  # Exclude elementul curent
+        sorted_elements = sorted(all_elements, key=lambda x: abs(current_tarif - self.extract_tarif(x.tarif)))
+
+        # Alege primele 4 elemente
+        similar_elements = sorted_elements[:3]
+
+        return similar_elements

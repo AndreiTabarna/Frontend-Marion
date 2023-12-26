@@ -10,6 +10,7 @@ class Element(models.Model):
     url = models.CharField(max_length=255)
     tara = models.CharField(max_length=255, default='Nedefinit')
     oras = models.CharField(max_length=255, default='Nedefinit')
+    transport = models.CharField(max_length=255, default='Nedefinit')
     program = models.TextField()
     include = models.TextField()
     nu_include = models.TextField()
