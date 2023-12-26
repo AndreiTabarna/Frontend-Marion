@@ -20,11 +20,12 @@ class ImageListView(APIView):
         # Filtrare în funcție de parametrii
         queryset = Element.objects.all()
         if oras_param:
-            queryset = queryset.filter(oras=oras_param)
+            # Folosește __icontains pentru a căuta în întregul șir, nu doar la început
+            queryset = queryset.filter(oras__icontains=oras_param)
         if tara_param:
             queryset = queryset.filter(tara=tara_param)
         if transport_param:
-            queryset = queryset.filter(transport=transport_param)   
+            queryset = queryset.filter(transport=transport_param)
 
         serializer = ImageSerializer(queryset, many=True)
         return Response(serializer.data)
