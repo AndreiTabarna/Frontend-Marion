@@ -42,14 +42,14 @@ class ElementDetailView(APIView):
 class UniqueValuesView(APIView):
     def get(self, request):
         # Obține toate valorile unice pentru 'tara', 'oras' și 'transport'
-        unique_tari = Element.objects.values_list('tara', flat=True).distinct()
-        unique_orase = self.get_unique_orase()
-        unique_transport = Element.objects.values_list('transport', flat=True).distinct()
+        unique_tari = sorted(Element.objects.values_list('tara', flat=True).distinct())
+        unique_orase = sorted(self.get_unique_orase())
+        unique_transport = sorted(Element.objects.values_list('transport', flat=True).distinct())
 
         response_data = {
-            'unique_tari': list(unique_tari),
+            'unique_tari': unique_tari,
             'unique_orase': unique_orase,
-            'unique_transport': list(unique_transport),
+            'unique_transport': unique_transport,
         }
 
         return Response(response_data)
@@ -61,10 +61,10 @@ class UniqueValuesView(APIView):
         # Concatenează toate valorile și împarte-le după virgulă
         all_orase = ','.join(all_orase).split(',')
         
-        # Elimină spațiile albe și obține valorile unice
-        unique_orase = set(map(str.strip, all_orase))
+        # Elimină spațiile albe și obține valorile unice, apoi sortează alfabetic
+        unique_orase = sorted(set(map(str.strip, all_orase)))
 
-        return list(unique_orase)
+        return unique_orase
         
 class SimilarElementsView(APIView):
     def get(self, request, element_id):
