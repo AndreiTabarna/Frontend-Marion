@@ -1,4 +1,5 @@
 /* SearchBar.css */
+
 .search-bar-container {
   background: linear-gradient(to right, #00a8ff, #005082);
   display: flex;
@@ -49,7 +50,33 @@
   transition: background-color 0.3s ease;
 }
 
+.oval-button2 {
+  display: flex;
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+  background-color: #00a8ff;
+  color: #fff;
+  font-size: 18px; /* Adjust the font size for the text */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.oval-button2 img {
+  width: 40px; /* Adjust the width of the image */
+  height: auto; /* Adjust the height of the image */
+}
+
 .oval-button:hover {
+  background-color: #3a6aaf;
+}
+
+.oval-button2:hover {
   background-color: #3a6aaf;
 }
 

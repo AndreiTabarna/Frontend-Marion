@@ -1,32 +1,44 @@
 /* Footer.css */
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#content {
+  flex: 1;
+}
+
 #footerContainer {
-  background: linear-gradient(to bottom, #333, #222); /* Gradient de la #333 la #222 */
-  color: #ccc; /* culoare alb pentru text */
+  background: linear-gradient(to bottom, #333, #222);
+  color: #ccc;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  border-top-left-radius: 10px; /* Rotunjire colțuri sus-stânga */
-  border-top-right-radius: 10px; /* Rotunjire colțuri sus-dreapta */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: auto; /* Mărește marginea de sus pentru a impinge footer-ul în jos */
 }
 
 #footerContainer div {
   flex: 1;
   display: flex;
-  flex-direction: column; /* Afișează conținutul într-o coloană */
+  flex-direction: column;
 }
 
 #footerContainer h3 {
-  font-size: 1em; /* dimensiune redusă a fontului */
+  font-size: 1em;
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
 }
 
 #footerContainer p {
-  margin: 5px 0; /* spațiu redus între paragrafe */
+  margin: 5px 0;
   color: #ccc;
-  font-size: 0.8em; /* dimensiune redusă a fontului */
+  font-size: 0.8em;
 }
 
 #footerContainer a {

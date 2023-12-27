@@ -11,16 +11,15 @@ import Footer from './Footer';
 
 const AppContent = () => {
   const location = useLocation();
-  const isNewPage = location.pathname === '/new-page';
+  const isNewPage = location.pathname !== '/';
 
   return (
     <div>
       {!isNewPage && <Header />}
       {!isNewPage && <Banner />}
-      {!isNewPage && <SearchBar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/new-page" element={<NewPage />} />
+        <Route path="/*" element={<NewPage />} />
       </Routes>
       <ScrollToTopButton />
       <Footer />

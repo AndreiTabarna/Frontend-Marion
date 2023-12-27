@@ -9,13 +9,13 @@ const NewPage = () => {
     <div className="image-container">
     
         <img src={image1} alt="Imagine 12" className="image" />
-    
         <div className="info-container">
         <p>Perioada: 4 aprilie – 7 aprilie 2024</p>
         <p>Tarif: 250 euro</p>
         <p>Telefon: 0232 – 267.002 / 0232 – 258.103 / 0731.757.149 (whatsapp)</p>
       </div>
    </div>
+      <hr />
       <p className="title">4 aprilie 2024 || Iaşi – Russe</p>
       <p>
         Plecare din Iaşi la ora 0530 din parcarea Cinema Victoria, pe traseul Focşani – Buzău – Bucureşti (centură) – Giurgiu – Russe.
@@ -71,6 +71,9 @@ const NewPage = () => {
         <li>Pentru un grup mai mic de 40 persoane, tariful se recalculează.</li>
         <li>Agenția Marion Turism poate schimba ordinea obiectivelor turistice și ordinea opționalelor din program, fără a afecta structura excursiei.</li>
       </ul>
+      
+      <hr />
+      
       <BackButton />
     </div>
   );
