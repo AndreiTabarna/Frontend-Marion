@@ -9,13 +9,12 @@ const Banner = () => {
   const importAllBannerImages = (r) => r.keys().map(r);
   const bannerImagePaths = importAllBannerImages(require.context('./Banners', false, /\.(jpg)$/));
 
-  const animationTypes = ['fade', 'zoom', 'slideRight', 'slideLeft']; // Adaugă orice tip de animație dorit
+  const animationTypes = ['fade', 'zoom', 'slideRight', 'slideLeft'];
 
   useEffect(() => {
-    const interval = setInterval(async () => {
+    const interval = setInterval(() => {
       const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
 
-      // Alege animația aleatoare
       let animationProps = {};
       switch (randomAnimation) {
         case 'fade':
@@ -35,9 +34,9 @@ const Banner = () => {
           break;
       }
 
-      await controls.start(animationProps);
-      setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
-      await controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
+      controls.start(animationProps)
+        .then(() => setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length))
+        .then(() => controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } }));
     }, 5000);
 
     return () => clearInterval(interval);

@@ -30,7 +30,7 @@ const ScrollToTopButton = () => {
   };
 
   return (
-    <ButtonContainer isVisible={isVisible} onClick={scrollToTop}>
+    <ButtonContainer $isVisible={isVisible} onClick={scrollToTop}>
       {/* Săgeată albă în formă de triunghi */}
       &#9650;
     </ButtonContainer>
@@ -38,7 +38,7 @@ const ScrollToTopButton = () => {
 };
 
 const ButtonContainer = styled.div`
-  display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+  display: ${(props) => (props.$isVisible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   position: fixed;
