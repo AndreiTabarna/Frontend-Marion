@@ -7,36 +7,60 @@ const NewPage = () => {
   const location = useLocation();
   const elementId = location?.state?.elementId;
   const [elementData, setElementData] = useState(null);
+  const [similarElements, setSimilarElements] = useState([]);
+  
+const handleSimilarElementClick = (elementUrl) => {
+  // Construiește URL-ul complet pentru redirectare
+  const baseUrl = window.location.origin;
+  const fullUrl = `${baseUrl}/${elementUrl}`;
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      let data;
+  // Redirectează către NewPage.js cu elementUrl corespunzător
+  window.location.href = fullUrl;
+};
 
-      if (elementId) {
-        // Dacă există elementId, face solicitarea la endpoint-ul specific
-        const response = await fetch(`http://127.0.0.1:8000/api/elements/${elementId}/`);
-        data = await response.json();
-      } else {
-        // Dacă nu există elementId, obține id-ul din URL și face solicitarea la endpoint-ul potrivit
-        const pathParts = window.location.pathname.split('/');
-        const potentialElementId = pathParts.slice(1).join('/');  // Obține path-ul după primul '/'
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let data;
 
-        const queryString = window.location.search;  // Obține query string-ul
+        if (elementId) {
+          const response = await fetch(`http://127.0.0.1:8000/api/elements/${elementId}/`);
+          data = await response.json();
+        } else {
+          const pathParts = window.location.pathname.split('/');
+          const potentialElementId = pathParts.slice(1).join('/');
+          const queryString = window.location.search;
+          const response = await fetch(`http://127.0.0.1:8000/api/elements-by-url/?url=${potentialElementId}${queryString}`);
+          data = await response.json();
+        }
 
-        const response = await fetch(`http://127.0.0.1:8000/api/elements-by-url/?url=${potentialElementId}${queryString}`);
-        data = await response.json();
+        console.log('Element Data from API:', data);
+        setElementData(data);
+      } catch (error) {
+        console.error('Error fetching element data:', error);
       }
+    };
 
-      console.log('Element Data from API:', data);
-      setElementData(data);
-    } catch (error) {
-      console.error('Error fetching element data:', error);
-    }
-  };
+    fetchData();
+  }, [elementId]);
 
-  fetchData();
-}, [elementId]);
+  // Efect pentru a obține și afișa elemente similare
+  useEffect(() => {
+    const fetchSimilarElements = async () => {
+      try {
+        if (elementData?.id) {
+          const response = await fetch(`http://127.0.0.1:8000/api/similar-elements/${elementData.id}/`);
+          const similarElementsData = await response.json();
+          console.log('Similar Elements Data from API:', similarElementsData);
+          setSimilarElements(similarElementsData);
+        }
+      } catch (error) {
+        console.error('Error fetching similar elements data:', error);
+      }
+    };
+
+    fetchSimilarElements();
+  }, [elementData]);
 
   // Restul codului rămâne neschimbat
 
@@ -128,7 +152,22 @@ return (
         )
       ))}
     </ul>
-
+    
+    <hr />
+      
+    {similarElements.length > 0 && (
+      <>
+        <h2 className="similar-elements-title">Alte destinatii ce v-ar putea interesa:</h2>
+        <div className="similar-elements-container">
+        {similarElements.map((similarElement, index) => (
+        <div key={index} className="similar-element" onClick={() => handleSimilarElementClick(similarElement.element_url)}>
+        <img src={similarElement.image_url} alt={`Similar Element ${index}`} />
+        </div>
+        ))}
+        </div>
+      </>
+    )}
+      
       <hr />
 
       <BackButton />
@@ -137,4 +176,3 @@ return (
 };
 
 export default NewPage;
-

@@ -14,11 +14,12 @@ body {
 }
 
 .image {
-  width: 30%;
-  height: 30%;
+  width: 32%;
+  height: 32%;
   border-radius: 15px;
   margin-bottom: 10px; 
 }
+
 
 .info-container {
   background-color: #f8f8f8;
@@ -27,6 +28,7 @@ body {
   border-radius: 5px;
   text-align: left;
   margin-top: -10px;
+  margin-left: 60px;
 }
 
 .info-container p {
@@ -82,4 +84,36 @@ li {
 li:only-child::before {
   content: none; /* Ascunde punctul */
 }
+
+.similar-elements-title {
+  font-size: 35px; /* Stilizează dimensiunea textului */
+  color: #00a8ff; /* Stilizează culoarea textului */
+  font-weight: bold; /* Stilizează grosimea textului */
+  margin-bottom: 16px; /* Spațiu între titlu și containerul de imagini */
+}
+
+.similar-elements-container {
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
+  margin-bottom: 10px; /* Reducere spațiu între container și conținutul următor */
+  padding: 40px;
+}
+
+.similar-element {
+  margin-right: 60px; /* Reducere spațiu între imagini */
+}
+
+.similar-element img {
+  width: 500px; /* Dimensiunea imaginii */
+  height: auto; /* Păstrează raportul de aspect al imaginii */
+  border-radius: 15px; /* Reducere raza de încadrare */
+  transition: transform 0.2s;
+}
+
+.similar-element img:hover {
+  transform: scale(1.05); /* Mărește imaginea la hover cu un factor de 1.05 */
+}
+
+
 
