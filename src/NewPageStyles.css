@@ -26,7 +26,7 @@ body {
   margin-bottom: 20px;
   border-radius: 5px;
   text-align: left;
-  margin-top: 40px;
+  margin-top: -10px;
 }
 
 .info-container p {
@@ -71,11 +71,15 @@ hr {
 
 
 ul {
-  list-style-type: none;
-  padding: 0;
+  padding: 0 0 0 30px;
 }
 
 li {
   margin-bottom: 12px;
+  list-style-type: disc;
+}
+
+li:only-child::before {
+  content: none; /* Ascunde punctul */
 }
 

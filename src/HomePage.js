@@ -45,8 +45,9 @@ const HomePage = () => {
     fetchData();
   }, []);
 
-  const handleImageClick = (elementUrl) => {
-    navigate(`/${elementUrl}`);
+  const handleImageClick = (elementUrl, elementId) => {
+    console.log('Element ID:', elementId);
+    navigate(`/${elementUrl}`, { state: { elementId } });
   };
 
   const handleSearch = (filteredImagesData) => {
@@ -72,7 +73,7 @@ const HomePage = () => {
               className="destination-image"
               src={imageData.image_url}
               alt={`Destination ${index + 1}`}
-              onClick={() => handleImageClick(imageData.element_url)}
+              onClick={() => handleImageClick(imageData.element_url, imageData.element_id)}
             />
           ))}
         </Container>
@@ -82,4 +83,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
