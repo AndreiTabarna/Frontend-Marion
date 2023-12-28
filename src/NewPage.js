@@ -140,7 +140,7 @@ return (
       ))}
     </ul>
 
-    <hr />
+    {acteParagraphs.length > 1 && <hr />}
 
     {/* Parsare important */}
     <p className="title">{importantParagraphs[0]}</p>
