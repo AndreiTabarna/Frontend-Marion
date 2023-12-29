@@ -183,7 +183,7 @@ li:only-child::before {
   }
 
   .similar-element img {
-    width: 100%; /* Lățime de 100% pentru a umple întreaga lățime a containerului */
+    width: 110%; /* Lățime de 100% pentru a umple întreaga lățime a containerului */
     height: auto; /* Păstrează raportul de aspect al imaginii */
     border-radius: 20px;
     transition: transform 0.2s;
