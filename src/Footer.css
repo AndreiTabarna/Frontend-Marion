@@ -38,7 +38,7 @@ body {
 #footerContainer p {
   margin: 5px 0;
   color: #ccc;
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
 #footerContainer a {
@@ -62,4 +62,26 @@ body {
     width: 100%;
   }
 }
+
+/* Adaugă stiluri pentru rezolutia 1770px */
+/* Adaugă stiluri pentru rezolutia 1770px */
+/* Adaugă stiluri pentru rezolutia 1770px */
+@media (max-width: 1770px) {
+  #footerContainer h3 {
+    font-size: 2.3em; /* Mărește dimensiunea fontului pentru titlu */
+    border-bottom: none; /* Elimină linia de sub titlu */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  #footerContainer div {
+    margin-right: 30px; /* Adaugă un spațiu considerabil între elementele afișate unul sub altul */
+  }
+
+  #footerContainer p {
+    font-size: 1.6em; /* Mărește dimensiunea fontului pentru paragrafe */
+  }
+}
+
+
 

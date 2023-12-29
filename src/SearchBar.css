@@ -80,3 +80,59 @@
   background-color: #3a6aaf;
 }
 
+.dropdown,
+.oval-button,
+.oval-button2 {
+  font-size: 20px; /* Dimensiunea inițială a textului */
+}
+
+/* Media query pentru a ajusta dimensiunea textului pe măsură ce fereastra se redimensionează */
+@media screen and (max-width: 768px) {
+  .dropdown,
+  .oval-button,
+  .oval-button2 {
+    font-size: 18px; /* Redu dimensiunea textului pentru ecrane mai mici */
+  }
+}
+
+/* Adaugă media query pentru rezoluția specificată */
+@media (max-width: 1770px) {
+  .search-bar-container {
+    padding: 50px; /* Mărește padding-ul containerului */
+    margin-bottom: 80px;
+  }
+
+  .dropdown,
+  .oval-button,
+  .oval-button2 {
+    width: 350px !important; /* Redu lățimea butoanelor */
+    height: 100px; /* Mărește înălțimea componentelor */
+    font-size: 39px !important; /* Mărește dimensiunea textului */
+    margin: 0 20px; /* Ajustează margin-ul */
+    border-radius: 70px; /* Face butoanele mai rotunde */
+    padding: 0 20px; /* Adaugă spațiu la stânga și la dreapta în butoane */
+  }
+
+  .oval-button2 {
+    width: 80px !important; /* Redu lățimea .oval-button2 */
+    height: 100px !important;
+    padding: 0 60px; /* Adaugă spațiu la stânga și la dreapta în .oval-button2 */
+  }
+
+  .dropdown {
+    background-image: none; /* Elimină background-image pentru .dropdown */
+  }
+
+  .oval-button2 img {
+    width: 70px; /* Mărește dimensiunea imaginii din .oval-button2 */
+  }
+  
+  .dropdown option {
+    font-size: 20px; /* Adjust the font size for dropdown options */
+  }
+}
+
+
+
+
+

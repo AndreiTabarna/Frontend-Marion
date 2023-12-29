@@ -28,3 +28,19 @@
   opacity: 0;
 }
 
+/* Adaugă media query pentru rezoluția specificată */
+@media (max-width: 1770px) {
+  .header {
+    padding: 75px 0; /* Ajustează padding-ul pentru a mări lungimea banner-ului */
+  }
+
+  .header img {
+    width: 600px; /* Mărește lățimea imaginii */
+  }
+
+  .header.scrolled {
+    margin-top: 195px; /* Ajustează marginea superioară pentru a păstra poziția corectă a imaginii */
+  }
+}
+
+

@@ -1,0 +1,21 @@
+/* ChatButton.css */
+
+/* Default styles for the chat button */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Media query for larger screens */
+@media (max-width: 1770px) {
+  .chat-button {
+    width: 120px;
+    height: 120px;
+    font-size: 70px;
+  }
+}
+

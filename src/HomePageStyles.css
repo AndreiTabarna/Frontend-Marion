@@ -21,3 +21,30 @@
   transform: scale(1.05); /* Mărește imaginea la hover */
 }
 
+/* Adaugă media query pentru a ajusta dimensiunea imaginilor pe dispozitive mici */
+@media (max-width: 767px) {
+  .destination-image {
+    width: 80%;
+    height: auto;
+    margin: 20px 0;
+  }
+}
+
+/* Adaugă media query pentru a ajusta dimensiunea imaginilor pe dispozitive mijlocii */
+@media (min-width: 768px) and (max-width: 1323px) {
+  .destination-image {
+    width: 40%;
+    height: auto;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 1770px) {
+  .destination-image {
+    width: 75%; /* Face imaginea să ocupe întreaga lățime a containerului */
+    border-radius: 30px;
+    height: auto;
+    margin: 20px;
+    margin-bottom: 80px;
+  }
+}

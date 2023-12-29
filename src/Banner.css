@@ -7,7 +7,19 @@
 
 .banner-image {
   width: 100%;
-  height: auto;
+  min-height: 500px; /* Setează înălțimea minimă a imaginii pentru a menține proporțiile */
   object-fit: cover; /* Asigură acoperirea completă a containerului cu imaginea */
+}
+
+
+/* Adaugă media query pentru rezoluția specificată */
+@media (max-width: 1770px) {
+  .banner-container {
+    height: 550px !important; /* Mărește înălțimea banner-ului */
+  }
+
+  .banner-image {
+    min-height: 550px !important; /* Mărește înălțimea minimă a imaginii pentru a menține proporțiile */
+  }
 }
 

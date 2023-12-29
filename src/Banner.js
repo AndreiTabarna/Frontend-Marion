@@ -42,6 +42,11 @@ const Banner = () => {
     return () => clearInterval(interval);
   }, [bannerImagePaths, controls, animationTypes]);
 
+  // Asigură-te că controls.start() este apelat doar după montarea completă a componentei
+  useEffect(() => {
+    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
+  }, [controls]);
+
   return (
     <motion.div
       initial={{ opacity: 100 }}

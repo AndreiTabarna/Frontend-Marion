@@ -44,17 +44,23 @@ const ButtonContainer = styled.div`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #00a8ff;
   color: #fff;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 32px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #005082;
+  }
+  
+  @media (max-width: 1770px) {
+    width: 120px;
+    height: 120px;
+    font-size: 70px;
   }
 `;
 

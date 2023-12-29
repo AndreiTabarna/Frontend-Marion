@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 import ScrollToTopButton from './ScrollToTopButton';
 import Header from './Header';
 import Footer from './Footer';
+import ChatButton from './ChatButton';
 
 const AppContent = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const AppContent = () => {
         <Route path="/*" element={<NewPage />} />
       </Routes>
       <ScrollToTopButton />
+      <ChatButton />
       <Footer />
     </div>
   );
