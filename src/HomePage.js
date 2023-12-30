@@ -20,12 +20,6 @@ const NoResultsText = styled.p`
   color: #00a8ff;
   text-align: center;
   margin-bottom: 80px;
-
-  @media (max-width: 1770px) {
-    font-size: 80px;
-    margin-top: 400px;
-    margin-bottom: 400px;
-  }
 `;
 
 const LoadingContainer = styled.div`
@@ -50,6 +44,7 @@ const HomePage = () => {
   const location = useLocation();
   const [allImagesData, setAllImagesData] = useState([]);
   const [displayedImagesData, setDisplayedImagesData] = useState([]);
+  const [searchedImagesData, setSearchedImagesData] = useState([]);
   const [noResults, setNoResults] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hasMoreImages, setHasMoreImages] = useState(true);
@@ -79,9 +74,12 @@ const HomePage = () => {
           setHasReturned(true);
         }
 
-        // Restore the previously displayed images from localStorage
-        const storedDisplayedImages = JSON.parse(localStorage.getItem('displayedImages')) || [];
-        setDisplayedImagesData(storedDisplayedImages);
+        const storedDisplayedImages = localStorage.getItem('displayedImages');
+        if (storedDisplayedImages) {
+          setDisplayedImagesData(JSON.parse(storedDisplayedImages));
+        } else {
+          setDisplayedImagesData(data.slice(0, IMAGES_PER_PAGE));
+        }
       } catch (error) {
         console.error('Error fetching images data:', error);
       }
@@ -104,10 +102,8 @@ const HomePage = () => {
     } else {
       setNoResults(false);
     }
+    setSearchedImagesData(filteredImagesData);
     setDisplayedImagesData(filteredImagesData.slice(0, IMAGES_PER_PAGE));
-
-    // Save the displayed images to localStorage
-    localStorage.setItem('displayedImages', JSON.stringify(filteredImagesData.slice(0, IMAGES_PER_PAGE)));
   };
 
   const handleScroll = () => {
@@ -131,11 +127,9 @@ const HomePage = () => {
           setDisplayedImagesData((prevImages) => [...prevImages, ...newImages]);
         }
 
-        // Save the updated displayed images to localStorage
-        localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
-
         setLoading(false);
       }, 1000); // Simulate a delay for loading (adjust as needed)
+      localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
     }
   };
 
@@ -162,15 +156,25 @@ const HomePage = () => {
       ) : (
         <>
           <Container>
-            {displayedImagesData.map((imageData, index) => (
-              <img
-                key={index}
-                className="destination-image"
-                src={imageData.image_url}
-                alt={`Destination ${index + 1}`}
-                onClick={() => handleImageClick(imageData.element_url, imageData.element_id)}
-              />
-            ))}
+            {searchedImagesData.length > 0
+              ? searchedImagesData.map((imageData, index) => (
+                  <img
+                    key={index}
+                    className="destination-image"
+                    src={imageData.image_url}
+                    alt={`Destination ${index + 1}`}
+                    onClick={() => handleImageClick(imageData.element_url, imageData.element_id)}
+                  />
+                ))
+              : displayedImagesData.map((imageData, index) => (
+                  <img
+                    key={index}
+                    className="destination-image"
+                    src={imageData.image_url}
+                    alt={`Destination ${index + 1}`}
+                    onClick={() => handleImageClick(imageData.element_url, imageData.element_id)}
+                  />
+                ))}
           </Container>
           {loading && hasMoreImages && (
             <LoadingContainer>
