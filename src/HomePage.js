@@ -55,9 +55,6 @@ const HomePage = () => {
   const SCROLL_THRESHOLD = 80; // Adjust the threshold as needed
 
   useEffect(() => {
-    // Clear localStorage on page load
-    localStorage.clear();
-
     const fetchData = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/api/images/');
@@ -131,8 +128,8 @@ const HomePage = () => {
         }
 
         setLoading(false);
+        localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
       }, 1000); // Simulate a delay for loading (adjust as needed)
-      localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
     }
   };
 
@@ -160,11 +157,11 @@ const HomePage = () => {
     };
   }, [loading, displayedImagesData, allImagesData, hasMoreImages, isAnimationCompleted]);
 
-  // Adăugăm un efect pentru a seta isAnimationCompleted pe true după un timp (poate fi ajustat)
+  // Add an effect to set isAnimationCompleted to true after a timeout
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
       setIsAnimationCompleted(true);
-    }, 500); // Ajustează timpul în milisecunde
+    }, 500); // Adjust the timeout in milliseconds
 
     return () => clearTimeout(animationTimeout);
   }, []);
