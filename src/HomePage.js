@@ -108,12 +108,13 @@ const HomePage = () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
-
+    const isMediaQueryMatched = window.matchMedia('(max-width: 1770px) and (min-height: 1080px)').matches;
+    const offset = isMediaQueryMatched ? 2400 : 400;
     if (
       isAnimationCompleted &&
       hasMoreImages &&
       !loading &&
-      scrollY + window.innerHeight + SCROLL_THRESHOLD >= document.body.scrollHeight - 400
+      scrollY + window.innerHeight + SCROLL_THRESHOLD >= document.body.scrollHeight - offset
     ) {
       setLoading(true);
 
