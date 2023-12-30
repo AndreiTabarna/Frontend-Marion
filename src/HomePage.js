@@ -113,7 +113,7 @@ const HomePage = () => {
       isAnimationCompleted &&
       hasMoreImages &&
       !loading &&
-      scrollY + window.innerHeight + SCROLL_THRESHOLD >= document.body.scrollHeight
+      scrollY + window.innerHeight + SCROLL_THRESHOLD >= document.body.scrollHeight - 400
     ) {
       setLoading(true);
 
