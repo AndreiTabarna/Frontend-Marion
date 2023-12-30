@@ -79,7 +79,9 @@ const HomePage = () => {
           setHasReturned(true);
         }
 
-        setDisplayedImagesData(data.slice(0, IMAGES_PER_PAGE));
+        // Restore the previously displayed images from localStorage
+        const storedDisplayedImages = JSON.parse(localStorage.getItem('displayedImages')) || [];
+        setDisplayedImagesData(storedDisplayedImages);
       } catch (error) {
         console.error('Error fetching images data:', error);
       }
@@ -103,6 +105,9 @@ const HomePage = () => {
       setNoResults(false);
     }
     setDisplayedImagesData(filteredImagesData.slice(0, IMAGES_PER_PAGE));
+
+    // Save the displayed images to localStorage
+    localStorage.setItem('displayedImages', JSON.stringify(filteredImagesData.slice(0, IMAGES_PER_PAGE)));
   };
 
   const handleScroll = () => {
@@ -125,6 +130,9 @@ const HomePage = () => {
         } else {
           setDisplayedImagesData((prevImages) => [...prevImages, ...newImages]);
         }
+
+        // Save the updated displayed images to localStorage
+        localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
 
         setLoading(false);
       }, 1000); // Simulate a delay for loading (adjust as needed)
