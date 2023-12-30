@@ -168,7 +168,7 @@ return (
       </>
     )}
       
-      <hr />
+      <hr class="hr-element" />
 
       <BackButton />
     </div>

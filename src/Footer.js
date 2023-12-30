@@ -28,6 +28,7 @@ const Footer = () => {
             Informatii precontractuale
           </a>
         </p>
+        <p>Website realizat integral de Tabarna Andrei-Alexandru</p>
       </div>
       <div>
         <h3>Poliţe de asigurare:</h3>

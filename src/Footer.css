@@ -14,7 +14,7 @@ body {
 #footerContainer {
   background: linear-gradient(to bottom, #333, #222);
   color: #ccc;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -51,22 +51,12 @@ body {
   text-decoration: underline;
 }
 
-/* Adaugă stiluri pentru responsive design */
-@media (max-width: 768px) {
+@media (max-width: 1770px) and (min-height: 1080px) {
+
   #footerContainer {
-    flex-direction: column;
-    text-align: center;
+    margin-top: 80px;
   }
 
-  #footerContainer div {
-    width: 100%;
-  }
-}
-
-/* Adaugă stiluri pentru rezolutia 1770px */
-/* Adaugă stiluri pentru rezolutia 1770px */
-/* Adaugă stiluri pentru rezolutia 1770px */
-@media (max-width: 1770px) {
   #footerContainer h3 {
     font-size: 2.3em; /* Mărește dimensiunea fontului pentru titlu */
     border-bottom: none; /* Elimină linia de sub titlu */
@@ -82,6 +72,9 @@ body {
     font-size: 1.6em; /* Mărește dimensiunea fontului pentru paragrafe */
   }
 }
+
+
+
 
 
 

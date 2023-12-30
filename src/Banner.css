@@ -13,7 +13,7 @@
 
 
 /* Adaugă media query pentru rezoluția specificată */
-@media (max-width: 1770px) {
+@media (max-width: 1770px) and (min-height: 1080px) {
   .banner-container {
     height: 550px !important; /* Mărește înălțimea banner-ului */
   }

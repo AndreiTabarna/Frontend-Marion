@@ -21,7 +21,7 @@
 }
 
 /* Adaugă stiluri pentru rezolutia 1770px */
-@media (max-width: 1770px) {
+@media (max-width: 1770px) and (min-height: 1080px) {
   .back-button {
     padding: 50px 80px; /* Ajustează dimensiunile butonului pentru rezoluția specificată */
     font-size: 55px; /* Ajustează dimensiunea textului butonului pentru rezoluția specificată */

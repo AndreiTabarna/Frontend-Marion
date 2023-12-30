@@ -20,6 +20,56 @@ body {
   margin-bottom: 10px; 
 }
 
+/* Adaugă media query pentru a ajusta dimensiunea imaginilor pe dispozitive mici */
+@media (max-width: 767px) {
+  .image {
+    display: none;
+  }
+  
+.similar-elements-title {
+    display: none;
+}
+  
+  .similar-elements-container {
+    display: none;
+  }
+
+  .similar-element {
+    display: none;
+  }
+
+  .similar-element img {
+    display: none;
+  }
+  
+  .hr-element {
+    display: none;
+  }
+}
+
+/* Adaugă media query pentru a ajusta dimensiunea imaginilor pe dispozitive mijlocii */
+@media (min-width: 768px) and (max-width: 1873px) {
+  .image {
+    display: none;
+  }
+  .similar-elements-container {
+    display: flex;
+    flex-direction: column; /* Așează elementele unul sub altul */
+    align-items: center; /* Aliniază elementele pe centru */
+  }
+
+  .similar-element {
+    width: 80%; /* Face elementul să ocupe întreaga lățime a containerului */
+    margin-bottom: 80px; /* Adaugă spațiu între elemente */
+  }
+
+  .similar-element img {
+    width: 90%; /* Lățime de 100% pentru a umple întreaga lățime a containerului */
+    height: auto; /* Păstrează raportul de aspect al imaginii */
+    border-radius: 20px;
+    transition: transform 0.2s;
+  }
+}
 
 .info-container {
   background-color: #f8f8f8;
@@ -117,7 +167,7 @@ li:only-child::before {
 
 
 /* Adaugă stiluri pentru rezolutia 1770px */
-@media (max-width: 1770px) and (max-height: 2960px) {
+@media (max-width: 1770px) and (min-height: 1080px){
   .image-container {
     flex-direction: column; /* Așează imaginile unul sub altul */
     align-items: center; /* Aliniază imaginile pe centru */
