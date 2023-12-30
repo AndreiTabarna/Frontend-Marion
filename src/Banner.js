@@ -34,18 +34,24 @@ const Banner = () => {
           break;
       }
 
-      controls.start(animationProps)
+      controls
+        .start(animationProps)
         .then(() => setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length))
-        .then(() => controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } }));
+        .then(() =>
+          controls.start({
+            opacity: 1,
+            x: '0%',
+            scale: 1,
+            transition: { duration: 1.0 },
+          })
+        );
     }, 5000);
+
+    // Make sure to call controls.start() after the initial mount
+    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
 
     return () => clearInterval(interval);
   }, [bannerImagePaths, controls, animationTypes]);
-
-  // Asigură-te că controls.start() este apelat doar după montarea completă a componentei
-  useEffect(() => {
-    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
-  }, [controls]);
 
   return (
     <motion.div
