@@ -55,6 +55,9 @@ const HomePage = () => {
   const SCROLL_THRESHOLD = 80; // Adjust the threshold as needed
 
   useEffect(() => {
+    // Clear localStorage on page load
+    localStorage.clear();
+
     const fetchData = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/api/images/');
@@ -135,7 +138,26 @@ const HomePage = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Add event listeners for beforeunload and unload
+    const handleBeforeUnload = () => {
+      // Clear localStorage when the page is about to be unloaded
+      localStorage.clear();
+    };
+
+    const handleUnload = () => {
+      // Clear localStorage when the page is unloaded
+      localStorage.clear();
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('unload', handleUnload);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('unload', handleUnload);
+    };
   }, [loading, displayedImagesData, allImagesData, hasMoreImages, isAnimationCompleted]);
 
   // Adăugăm un efect pentru a seta isAnimationCompleted pe true după un timp (poate fi ajustat)
