@@ -12,45 +12,53 @@ const Banner = () => {
   const animationTypes = ['fade', 'zoom', 'slideRight', 'slideLeft'];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+    const animateBanner = async () => {
+      try {
+        const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
 
-      let animationProps = {};
-      switch (randomAnimation) {
-        case 'fade':
-          animationProps = { opacity: 0, transition: { duration: 1.0 } };
-          break;
-        case 'zoom':
-          animationProps = { scale: 0, transition: { duration: 1.0 } };
-          break;
-        case 'slideRight':
-          animationProps = { x: '100%', transition: { duration: 1.0 } };
-          break;
-        case 'slideLeft':
-          animationProps = { x: '-100%', transition: { duration: 1.0 } };
-          break;
-        default:
-          animationProps = { opacity: 0, transition: { duration: 1.0 } };
-          break;
+        let animationProps = {};
+        switch (randomAnimation) {
+          case 'fade':
+            animationProps = { opacity: 0, transition: { duration: 1.0 } };
+            break;
+          case 'zoom':
+            animationProps = { scale: 0, transition: { duration: 1.0 } };
+            break;
+          case 'slideRight':
+            animationProps = { x: '100%', transition: { duration: 1.0 } };
+            break;
+          case 'slideLeft':
+            animationProps = { x: '-100%', transition: { duration: 1.0 } };
+            break;
+          default:
+            animationProps = { opacity: 0, transition: { duration: 1.0 } };
+            break;
+        }
+
+        await controls.start(animationProps);
+        setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
+        await controls.start({
+          opacity: 1,
+          x: '0%',
+          scale: 1,
+          transition: { duration: 1.0 },
+        });
+      } catch (error) {
+        // Handle any errors (e.g., component unmounted) to prevent crashing
+        console.error('Animation error:', error.message);
       }
+    };
 
-      controls
-        .start(animationProps)
-        .then(() => setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length))
-        .then(() =>
-          controls.start({
-            opacity: 1,
-            x: '0%',
-            scale: 1,
-            transition: { duration: 1.0 },
-          })
-        );
+    const interval = setInterval(() => {
+      animateBanner();
     }, 5000);
 
     // Make sure to call controls.start() after the initial mount
     controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, [bannerImagePaths, controls, animationTypes]);
 
   return (
