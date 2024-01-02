@@ -107,9 +107,9 @@
   .dropdown,
   .oval-button,
   .oval-button2 {
-    width: 350px !important; /* Redu lățimea butoanelor */
+    width: 250px !important; /* Redu lățimea butoanelor */
     height: 100px; /* Mărește înălțimea componentelor */
-    font-size: 39px !important; /* Mărește dimensiunea textului */
+    font-size: 30px !important; /* Mărește dimensiunea textului */
     margin: 0 5px; /* Ajustează margin-ul */
     border-radius: 90px; /* Face butoanele mai rotunde */
     padding: 0 20px; /* Adaugă spațiu la stânga și la dreapta în butoane */
