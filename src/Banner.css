@@ -15,11 +15,11 @@
 /* Adaugă media query pentru rezoluția specificată */
 @media (max-width: 1770px){
   .banner-container {
-    height: 350px !important; /* Mărește înălțimea banner-ului */
+    height: 250px !important; /* Mărește înălțimea banner-ului */
   }
 
   .banner-image {
-    min-height: 350px !important; /* Mărește înălțimea minimă a imaginii pentru a menține proporțiile */
+    min-height: 250px !important; /* Mărește înălțimea minimă a imaginii pentru a menține proporțiile */
   }
 }
 

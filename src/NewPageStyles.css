@@ -137,7 +137,7 @@ li:only-child::before {
   }
 
   .info-container p {
-    font-size: 70px; /* Mărește dimensiunea fontului pentru textul scris cu albastru */
+    font-size: 20px; /* Mărește dimensiunea fontului pentru textul scris cu albastru */
     margin-bottom: 12px; /* Reducere spațiu între paragrafe */
     text-align: center;
   }
@@ -151,13 +151,13 @@ li:only-child::before {
   }
 
   .title {
-    font-size: 45px; /* Mărește dimensiunea fontului pentru titlu */
+    font-size: 20px; /* Mărește dimensiunea fontului pentru titlu */
     text-align: center;
   }
 
   .content,
   p {
-    font-size: 35px; /* Mărește dimensiunea fontului pentru conținut */
+    font-size: 15px; /* Mărește dimensiunea fontului pentru conținut */
     margin-bottom: 20px; /* Reducere spațiu între paragrafe și conținut */
     text-align: left;
   }
@@ -167,7 +167,7 @@ li:only-child::before {
   }
 
   .similar-elements-title {
-    font-size: 80px; /* Mărește dimensiunea fontului pentru titlul "Alte destinatii ce v-ar putea interesa" */
+    font-size: 20px; /* Mărește dimensiunea fontului pentru titlul "Alte destinatii ce v-ar putea interesa" */
     color: #00a8ff; /* Schimbă culoarea textului la albastru */
     margin-bottom: 20px; /* Reducere spațiu între titlu și containerul de imagini */
   }
@@ -191,7 +191,7 @@ li:only-child::before {
   }
 
   li {
-    font-size: 55px; /* Mărește dimensiunea fontului pentru elementele li */
+    font-size: 15px; /* Mărește dimensiunea fontului pentru elementele li */
     margin-bottom: 20px; /* Reducere spațiu între elementele li */
   }
 }
