@@ -99,7 +99,7 @@
   .oval-button2 {
     width: 85px !important; /* Redu lățimea butoanelor */
     height: 40px; /* Redu înălțimea butoanelor */
-    font-size: 8.5px !important; /* Redu dimensiunea textului */
+    font-size: 8px !important; /* Redu dimensiunea textului */
     margin: 0 5px; /* Ajustează margin-ul */
     border-radius: 50px; /* Redu raza de border-radius */
     padding: 0 10px; /* Ajustează padding-ul */

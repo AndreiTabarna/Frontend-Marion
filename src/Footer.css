@@ -58,18 +58,18 @@ body {
   }
 
   #footerContainer h3 {
-    font-size: 2.0em; /* Mărește dimensiunea fontului pentru titlu */
+    font-size: 1.8em; /* Mărește dimensiunea fontului pentru titlu */
     border-bottom: none; /* Elimină linia de sub titlu */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
 
   #footerContainer div {
-    margin-right: 50px; /* Adaugă un spațiu considerabil între elementele afișate unul sub altul */
+    margin-right: 90px; /* Adaugă un spațiu considerabil între elementele afișate unul sub altul */
   }
 
   #footerContainer p {
-    font-size: 1.0em; /* Mărește dimensiunea fontului pentru paragrafe */
+    font-size: 0.7em; /* Mărește dimensiunea fontului pentru paragrafe */
   }
 }
 
