@@ -13,10 +13,6 @@ const ChatButton = () => {
     transition: 'opacity 0.05s ease-in-out', // Adăugă un efect de tranziție pentru opacitate
   };
 
-  const largeButtonStyle = {
-    width: '120px', // Înlocuiește cu lățimea dorită
-    height: '120px', // Înlocuiește cu înălțimea dorită
-  };
 
   useEffect(() => {
     const handleScroll = () => {
