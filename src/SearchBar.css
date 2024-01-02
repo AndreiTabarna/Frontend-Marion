@@ -27,8 +27,31 @@
   background-position: right 10px top 50%;
 }
 
+.dropdown2 {
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #5b8bd1;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  text-align: center;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%235b8bd1" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" /></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+}
+
 /* Stil pentru opțiunea cu valoarea vidă (""), care este textul butonului */
 .dropdown option[value=""] {
+  display: none;
+}
+
+/* Stil pentru opțiunea cu valoarea vidă (""), care este textul butonului */
+.dropdown2 option[value=""] {
   display: none;
 }
 
@@ -81,6 +104,7 @@
 }
 
 .dropdown,
+.dropdown2,
 .oval-button,
 .oval-button2 {
   font-size: 20px; /* Dimensiunea inițială a textului */
@@ -95,15 +119,20 @@
   }
 
   .dropdown,
+  .dropdown2,
   .oval-button,
   .oval-button2 {
     width: 70px !important; /* Redu lățimea butoanelor */
     height: 30px; /* Redu înălțimea butoanelor */
-    font-size: 7px !important; /* Redu dimensiunea textului */
+    font-size: 6px !important; /* Redu dimensiunea textului */
     margin: 0 5px; /* Ajustează margin-ul */
     border-radius: 50px; /* Redu raza de border-radius */
     padding: 0 10px; /* Ajustează padding-ul */
     text-align: center !important;
+  }
+  
+  .dropdown2 {
+    font-size: 7px !important;
   }
 
   .oval-button2 {
@@ -112,7 +141,8 @@
     padding: 0 5px; /* Ajustează padding-ul în .oval-button2 */
   }
 
-  .dropdown {
+  .dropdown,
+  .dropdown2 {
     background-image: none; /* Elimină background-image pentru .dropdown */
   }
 

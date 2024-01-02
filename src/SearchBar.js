@@ -71,7 +71,7 @@ const SearchBar = ({ onSearch }) => {
         ))}
       </select>
 
-      <select className="dropdown" onChange={(e) => setSelectedTransport(e.target.value)}>
+      <select className="dropdown2" onChange={(e) => setSelectedTransport(e.target.value)}>
         <option value="">Transport</option>
         {transportOptions.map((transport, index) => (
           <option key={index} value={transport}>
