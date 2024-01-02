@@ -118,7 +118,7 @@ li:only-child::before {
 
 
 /* Adaugă stiluri pentru rezolutia 1770px */
-@media (max-width: 1770px) and (min-height: 1080px){
+@media (max-width: 1770px){
   .image-container {
     flex-direction: column; /* Așează imaginile unul sub altul */
     align-items: center; /* Aliniază imaginile pe centru */
@@ -151,13 +151,13 @@ li:only-child::before {
   }
 
   .title {
-    font-size: 65px; /* Mărește dimensiunea fontului pentru titlu */
+    font-size: 45px; /* Mărește dimensiunea fontului pentru titlu */
     text-align: center;
   }
 
   .content,
   p {
-    font-size: 55px; /* Mărește dimensiunea fontului pentru conținut */
+    font-size: 35px; /* Mărește dimensiunea fontului pentru conținut */
     margin-bottom: 20px; /* Reducere spațiu între paragrafe și conținut */
     text-align: left;
   }

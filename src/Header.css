@@ -29,13 +29,13 @@
 }
 
 /* Adaugă media query pentru rezoluția specificată */
-@media (max-width: 1770px) and (min-height: 1080px) {
+@media (max-width: 1770px){
   .header {
     padding: 75px 0; /* Ajustează padding-ul pentru a mări lungimea banner-ului */
   }
 
   .header img {
-    width: 600px; /* Mărește lățimea imaginii */
+    width: 400px; /* Mărește lățimea imaginii */
   }
 
   .header.scrolled {
