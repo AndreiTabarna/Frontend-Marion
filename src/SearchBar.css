@@ -96,7 +96,7 @@
 }
 
 /* Adaugă media query pentru rezoluția specificată */
-@media (max-width: 1770px) and (min-height: 1080px) {
+@media (max-width: 1770px) {
   .search-bar-container {
     padding: 50px; /* Mărește padding-ul containerului */
     margin-bottom: 80px;
