@@ -39,7 +39,7 @@ const ChatButton = () => {
       phoneNumber="731757149"
       text="Buna ziua! Am o intrebare."
       countryCode="40"
-      style={{ ...buttonStyle, ...((window.innerWidth <= 1770 && window.innerLenght >= 1080) || largeButtonStyle) }}
+      style={{ ...buttonStyle, ...((window.innerWidth <= 1770) && largeButtonStyle) }}
     />
   );
 };

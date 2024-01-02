@@ -86,14 +86,6 @@
   font-size: 20px; /* Dimensiunea inițială a textului */
 }
 
-/* Media query pentru a ajusta dimensiunea textului pe măsură ce fereastra se redimensionează */
-@media screen and (max-width: 768px) {
-  .dropdown,
-  .oval-button,
-  .oval-button2 {
-    font-size: 18px; /* Redu dimensiunea textului pentru ecrane mai mici */
-  }
-}
 
 /* Adaugă media query pentru rezoluția specificată */
 @media (max-width: 1770px) and (min-height: 1080px) {
