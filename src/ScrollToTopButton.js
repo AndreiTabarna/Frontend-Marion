@@ -57,11 +57,6 @@ const ButtonContainer = styled.div`
     background-color: #005082;
   }
   
-  @media (max-width: 1770px) and (min-height: 1080px) {
-    width: 120px;
-    height: 120px;
-    font-size: 70px;
-  }
 `;
 
 export default ScrollToTopButton;
