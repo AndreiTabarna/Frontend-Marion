@@ -97,9 +97,9 @@
   .dropdown,
   .oval-button,
   .oval-button2 {
-    width: 85px !important; /* Redu lățimea butoanelor */
-    height: 40px; /* Redu înălțimea butoanelor */
-    font-size: 8px !important; /* Redu dimensiunea textului */
+    width: 65px !important; /* Redu lățimea butoanelor */
+    height: 30px; /* Redu înălțimea butoanelor */
+    font-size: 6px !important; /* Redu dimensiunea textului */
     margin: 0 5px; /* Ajustează margin-ul */
     border-radius: 50px; /* Redu raza de border-radius */
     padding: 0 10px; /* Ajustează padding-ul */
@@ -108,7 +108,7 @@
   .oval-button2 {
     width: 40px !important; /* Redu lățimea .oval-button2 */
     height: 40px !important;
-    padding: 0 10px; /* Ajustează padding-ul în .oval-button2 */
+    padding: 0 5px; /* Ajustează padding-ul în .oval-button2 */
   }
 
   .dropdown {
