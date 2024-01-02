@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import './NewPageStyles.css';
 import BackButton from './BackButton';
 
+
+window.scrollTo(0, 0);
 const NewPage = () => {
   const location = useLocation();
   const elementId = location?.state?.elementId;
