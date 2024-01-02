@@ -4,7 +4,6 @@ import HomePage from './HomePage';
 import NewPage from './NewPage';
 
 import Banner from './Banner';
-import SearchBar from './SearchBar';
 import ScrollToTopButton from './ScrollToTopButton';
 import Header from './Header';
 import Footer from './Footer';
