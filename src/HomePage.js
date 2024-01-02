@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './HomePageStyles.css';
-import NewPage from './NewPage';
 import SearchBar from './SearchBar';
 import loadingImage from './loading.gif';
 
@@ -41,7 +40,6 @@ const LoadingImage = styled.img`
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [allImagesData, setAllImagesData] = useState([]);
   const [displayedImagesData, setDisplayedImagesData] = useState([]);
   const [searchedImagesData, setSearchedImagesData] = useState([]);
@@ -156,7 +154,7 @@ const HomePage = () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       window.removeEventListener('unload', handleUnload);
     };
-  }, [loading, displayedImagesData, allImagesData, hasMoreImages, isAnimationCompleted]);
+  }, [loading, displayedImagesData, allImagesData, hasMoreImages, isAnimationCompleted, handleScroll]);
 
   // Add an effect to set isAnimationCompleted to true after a timeout
   useEffect(() => {

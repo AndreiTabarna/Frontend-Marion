@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import './Banner.css';
 
@@ -9,7 +9,7 @@ const Banner = () => {
   const importAllBannerImages = (r) => r.keys().map(r);
   const bannerImagePaths = importAllBannerImages(require.context('./Banners', false, /\.(jpg)$/));
 
-  const animationTypes = ['fade', 'zoom', 'slideRight', 'slideLeft'];
+  const animationTypes = useMemo(() => ['fade', 'zoom', 'slideRight', 'slideLeft'], []);
 
   useEffect(() => {
     const animateBanner = async () => {
