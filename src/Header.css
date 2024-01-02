@@ -29,7 +29,7 @@
 }
 
 /* Adaugă media query pentru rezoluția specificată */
-@media (max-width: 2000px){
+@media (max-width: 1000px){
   .header {
     padding: 75px 0; /* Ajustează padding-ul pentru a mări lungimea banner-ului */
   }

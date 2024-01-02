@@ -51,7 +51,7 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 2000px){
+@media (max-width: 1000px){
 
   #footerContainer {
     margin-top: 80px;
