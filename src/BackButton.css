@@ -23,8 +23,8 @@
 /* Adaugă stiluri pentru rezolutia 1770px */
 @media (max-width: 1000px){
   .back-button {
-    padding: 50px 80px; /* Ajustează dimensiunile butonului pentru rezoluția specificată */
-    font-size: 55px; /* Ajustează dimensiunea textului butonului pentru rezoluția specificată */
+    padding: 30px 50px; /* Ajustează dimensiunile butonului pentru rezoluția specificată */
+    font-size: 25px !important; /* Ajustează dimensiunea textului butonului pentru rezoluția specificată */
     margin-bottom: 40px; /* Ajustează marginea inferioară pentru rezoluția specificată */
     margin-top: 80px;
     border-radius: 90px;
