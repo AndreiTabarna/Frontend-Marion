@@ -118,7 +118,7 @@ li:only-child::before {
 
 
 /* Adaugă stiluri pentru rezolutia 1770px */
-@media (max-width: 1770px){
+@media (max-width: 1500px){
   .image-container {
     flex-direction: column; /* Așează imaginile unul sub altul */
     align-items: center; /* Aliniază imaginile pe centru */

@@ -88,7 +88,7 @@
 
 
 
-@media (max-width: 1770px) {
+@media (max-width: 1500px) {
   .search-bar-container {
     padding: 20px; /* Redu padding-ul containerului pentru a evita depășirea ecranului */
     margin-bottom: 20px; /* Redu margin-bottom-ul pentru a evita depășirea ecranului */

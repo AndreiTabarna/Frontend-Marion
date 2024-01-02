@@ -39,7 +39,7 @@
   }
 }
 
-@media (max-width: 1770px){
+@media (max-width: 1500px){
   .destination-image {
     width: 75%; /* Face imaginea să ocupe întreaga lățime a containerului */
     border-radius: 30px;
