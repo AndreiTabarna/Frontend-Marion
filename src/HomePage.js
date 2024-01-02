@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './HomePageStyles.css';
 import SearchBar from './SearchBar';
 import loadingImage from './loading.gif';
@@ -104,7 +104,7 @@ const HomePage = () => {
     setDisplayedImagesData(filteredImagesData.slice(0, IMAGES_PER_PAGE));
   };
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const scrollY = window.scrollY || window.pageYOffset;
     const isMediaQueryMatched = window.matchMedia('(max-width: 1770px) and (min-height: 1080px)').matches;
     const offset = isMediaQueryMatched ? 2400 : 1100;
@@ -130,7 +130,7 @@ const HomePage = () => {
         localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
       }, 500); // Simulate a delay for loading (adjust as needed)
     }
-  };
+  }, [loading, displayedImagesData, allImagesData, hasMoreImages, isAnimationCompleted]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
