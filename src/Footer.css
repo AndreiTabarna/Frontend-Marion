@@ -51,25 +51,25 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 1770px) and (min-height: 1080px) {
+@media (max-width: 1770px){
 
   #footerContainer {
     margin-top: 80px;
   }
 
   #footerContainer h3 {
-    font-size: 2.3em; /* Mărește dimensiunea fontului pentru titlu */
+    font-size: 2.0em; /* Mărește dimensiunea fontului pentru titlu */
     border-bottom: none; /* Elimină linia de sub titlu */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
 
   #footerContainer div {
-    margin-right: 30px; /* Adaugă un spațiu considerabil între elementele afișate unul sub altul */
+    margin-right: 50px; /* Adaugă un spațiu considerabil între elementele afișate unul sub altul */
   }
 
   #footerContainer p {
-    font-size: 1.4em; /* Mărește dimensiunea fontului pentru paragrafe */
+    font-size: 1.0em; /* Mărește dimensiunea fontului pentru paragrafe */
   }
 }
 

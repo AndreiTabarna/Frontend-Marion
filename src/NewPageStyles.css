@@ -143,7 +143,7 @@ li:only-child::before {
   }
 
   .NewPage {
-    margin: 90px; /* Reducere margin pentru a îmbunătăți aspectul la rezoluția specificată */
+    margin: 50px; /* Reducere margin pentru a îmbunătăți aspectul la rezoluția specificată */
   }
 
   .container {
@@ -180,11 +180,11 @@ li:only-child::before {
 
   .similar-element {
     width: 80%; /* Face elementul să ocupe întreaga lățime a containerului */
-    margin-bottom: 80px; /* Adaugă spațiu între elemente */
+    margin-bottom: 60px; /* Adaugă spațiu între elemente */
   }
 
   .similar-element img {
-    width: 110%; /* Lățime de 100% pentru a umple întreaga lățime a containerului */
+    width: 130%; /* Lățime de 100% pentru a umple întreaga lățime a containerului */
     height: auto; /* Păstrează raportul de aspect al imaginii */
     border-radius: 20px;
     transition: transform 0.2s;
