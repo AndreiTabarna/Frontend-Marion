@@ -36,7 +36,7 @@ const SearchBar = ({ onSearch }) => {
     // Fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/unique-values/');
+        const response = await fetch('https://web-production-f0a5.up.railway.app/api/unique-values/');
         const data = await response.json();
 
         // Update state with API data
