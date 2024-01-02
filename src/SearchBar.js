@@ -14,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = async () => {
     try {
-      const url = `http://127.0.0.1:8000/api/images/?Oras=${selectedCity}&Tara=${selectedCountry}&Transport=${selectedTransport}`;
+      const url = `https://web-production-f0a5.up.railway.app/api/images/?Oras=${selectedCity}&Tara=${selectedCountry}&Transport=${selectedTransport}`;
       const response = await fetch(url);
       const data = await response.json();
 

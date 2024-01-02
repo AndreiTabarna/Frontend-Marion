@@ -57,7 +57,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/images/');
+        const response = await fetch('https://web-production-f0a5.up.railway.app/api/images/');
         const data = await response.json();
 
         console.log('Images Data from API:', data);
@@ -130,7 +130,7 @@ const HomePage = () => {
 
         setLoading(false);
         localStorage.setItem('displayedImages', JSON.stringify(displayedImagesData));
-      }, 1000); // Simulate a delay for loading (adjust as needed)
+      }, 500); // Simulate a delay for loading (adjust as needed)
     }
   };
 

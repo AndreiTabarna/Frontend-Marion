@@ -24,13 +24,13 @@ const handleSimilarElementClick = (elementUrl) => {
         let data;
 
         if (elementId) {
-          const response = await fetch(`http://127.0.0.1:8000/api/elements/${elementId}/`);
+          const response = await fetch(`https://web-production-f0a5.up.railway.app/api/elements/${elementId}/`);
           data = await response.json();
         } else {
           const pathParts = window.location.pathname.split('/');
           const potentialElementId = pathParts.slice(1).join('/');
           const queryString = window.location.search;
-          const response = await fetch(`http://127.0.0.1:8000/api/elements-by-url/?url=${potentialElementId}${queryString}`);
+          const response = await fetch(`https://web-production-f0a5.up.railway.app/api/elements-by-url/?url=${potentialElementId}${queryString}`);
           data = await response.json();
         }
 
@@ -49,7 +49,7 @@ const handleSimilarElementClick = (elementUrl) => {
     const fetchSimilarElements = async () => {
       try {
         if (elementData?.id) {
-          const response = await fetch(`http://127.0.0.1:8000/api/similar-elements/${elementData.id}/`);
+          const response = await fetch(`https://web-production-f0a5.up.railway.app/api/similar-elements/${elementData.id}/`);
           const similarElementsData = await response.json();
           console.log('Similar Elements Data from API:', similarElementsData);
           setSimilarElements(similarElementsData);
