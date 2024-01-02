@@ -103,7 +103,7 @@
     margin: 0 5px; /* Ajustează margin-ul */
     border-radius: 50px; /* Redu raza de border-radius */
     padding: 0 10px; /* Ajustează padding-ul */
-    align-items: center !important;
+    text-align: center !important;
   }
 
   .oval-button2 {
