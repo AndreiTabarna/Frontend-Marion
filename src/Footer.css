@@ -14,7 +14,7 @@ body {
 #footerContainer {
   background: linear-gradient(to bottom, #333, #222);
   color: #ccc;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -30,7 +30,7 @@ body {
 }
 
 #footerContainer h3 {
-  font-size: 1em;
+  font-size: 1.5em;
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
 }
@@ -39,6 +39,11 @@ body {
   margin: 5px 0;
   color: #ccc;
   font-size: 0.7em;
+}
+
+#footerContainer a.contracte {
+  font-size: 1.6em; /* Mărește dimensiunea fontului pentru legăturile cu clasa "contracte" */
+  font-weight: bold; /* Face textul bold pentru legăturile cu clasa "contracte" */
 }
 
 #footerContainer a {

@@ -86,9 +86,9 @@ return (
   
       <img src={imagine} alt="Imagine" className="image" />
       <div className="info-container">
-      <p>Perioada: {perioada}</p>
-      <p>Tarif: {tarif}</p>
-      <p>Telefon: {telefon}</p>
+      <p>{perioada}</p>
+      <p>{tarif}</p>
+      <p>{telefon}</p>
      </div>
   </div>
      <hr />

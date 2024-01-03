@@ -33,7 +33,7 @@ body {
 }
 
 .info-container p {
-  font-size: 35px;
+  font-size: 30px;
   color: #00a8ff;
   font-weight: bold;
   margin-bottom: 16px;
@@ -106,7 +106,7 @@ li:only-child::before {
 }
 
 .similar-element img {
-  width: 500px; /* Dimensiunea imaginii */
+  width: 400px; /* Dimensiunea imaginii */
   height: auto; /* Păstrează raportul de aspect al imaginii */
   border-radius: 15px; /* Reducere raza de încadrare */
   transition: transform 0.2s;
