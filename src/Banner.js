@@ -14,7 +14,8 @@ const Banner = () => {
   useEffect(() => {
     const animateBanner = async () => {
       try {
-        const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+        const randomAnimation =
+          animationTypes[Math.floor(Math.random() * animationTypes.length)];
 
         let animationProps = {};
         switch (randomAnimation) {
@@ -37,7 +38,6 @@ const Banner = () => {
 
         await controls.start(animationProps);
         setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
-        // Smoothly transition to the new state after animation completes
         await controls.start({
           opacity: 1,
           x: '0%',
@@ -46,7 +46,6 @@ const Banner = () => {
         });
       } catch (error) {
         // Handle any errors (e.g., component unmounted) to prevent crashing
-        console.error('Animation error:', error.message);
       }
     };
 
@@ -60,7 +59,13 @@ const Banner = () => {
   }, [bannerImagePaths, controls, animationTypes]);
 
   useEffect(() => {
-    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
+    // Call controls.start() after the initial mount
+    controls.start({
+      opacity: 1,
+      x: '0%',
+      scale: 1,
+      transition: { duration: 1.0 },
+    });
   }, [controls]);
 
   return (
