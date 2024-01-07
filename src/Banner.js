@@ -1,73 +1,69 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import './Banner.css';
 
 const Banner = () => {
   const [index, setIndex] = useState(0);
   const controls = useAnimation();
-  const isMounted = useRef(true);
 
   const importAllBannerImages = (r) => r.keys().map(r);
   const bannerImagePaths = importAllBannerImages(require.context('./Banners', false, /\.(jpg)$/));
 
   const animationTypes = useMemo(() => ['fade', 'zoom', 'slideRight', 'slideLeft'], []);
 
-  const animateBanner = async () => {
-    try {
-      const randomAnimation =
-        animationTypes[Math.floor(Math.random() * animationTypes.length)];
+  useEffect(() => {
+    let isMounted = true;
 
-      let animationProps = {};
-      switch (randomAnimation) {
-        case 'fade':
-          animationProps = { opacity: 0, transition: { duration: 1.0 } };
-          break;
-        case 'zoom':
-          animationProps = { scale: 0, transition: { duration: 1.0 } };
-          break;
-        case 'slideRight':
-          animationProps = { x: '100%', transition: { duration: 1.0 } };
-          break;
-        case 'slideLeft':
-          animationProps = { x: '-100%', transition: { duration: 1.0 } };
-          break;
-        default:
-          animationProps = { opacity: 0, transition: { duration: 1.0 } };
-          break;
-      }
+    const animateBanner = async () => {
+      try {
+        const randomAnimation =
+          animationTypes[Math.floor(Math.random() * animationTypes.length)];
 
-      if (isMounted.current) {
+        let animationProps = {};
+        switch (randomAnimation) {
+          case 'fade':
+            animationProps = { opacity: 0, transition: { duration: 1.0 } };
+            break;
+          case 'zoom':
+            animationProps = { scale: 0, transition: { duration: 1.0 } };
+            break;
+          case 'slideRight':
+            animationProps = { x: '100%', transition: { duration: 1.0 } };
+            break;
+          case 'slideLeft':
+            animationProps = { x: '-100%', transition: { duration: 1.0 } };
+            break;
+          default:
+            animationProps = { opacity: 0, transition: { duration: 1.0 } };
+            break;
+        }
+
         await controls.start(animationProps);
-        setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
-        await controls.start({
-          opacity: 1,
-          x: '0%',
-          scale: 1,
-          transition: { duration: 1.0 },
-        });
+
+        if (isMounted) {
+          setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
+          await controls.start({
+            opacity: 1,
+            x: '0%',
+            scale: 1,
+            transition: { duration: 1.0 },
+          });
+        }
+      } catch (error) {
+        // Handle any errors (e.g., component unmounted) to prevent crashing
+          console.error('Animation error:', error.message);
       }
-    } catch (error) {
-      // Handle any errors (e.g., component unmounted) to prevent crashing
-        console.error('Animation error:', error.message);
-    }
-  };
-
-  useEffect(() => {
-    isMounted.current = true;
-    return () => {
-      isMounted.current = false;
     };
-  }, []);
 
-  useEffect(() => {
     const interval = setInterval(() => {
       animateBanner();
     }, 5000);
 
     return () => {
       clearInterval(interval);
+      isMounted = false;
     };
-  }, [bannerImagePaths, controls, animationTypes, animateBanner]);
+  }, [bannerImagePaths, controls, animationTypes]);
 
   useEffect(() => {
     // Call controls.start() after the initial mount
@@ -77,6 +73,11 @@ const Banner = () => {
       scale: 1,
       transition: { duration: 1.0 },
     });
+
+    return () => {
+      // Cleanup: Cancel ongoing animations when the component unmounts
+      controls.stop();
+    };
   }, [controls]);
 
   return (
