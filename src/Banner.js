@@ -12,13 +12,6 @@ const Banner = () => {
 
   const animationTypes = useMemo(() => ['fade', 'zoom', 'slideRight', 'slideLeft'], []);
 
-  useEffect(() => {
-    isMounted.current = true;
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
-
   const animateBanner = async () => {
     try {
       const randomAnimation =
@@ -55,11 +48,16 @@ const Banner = () => {
       }
     } catch (error) {
       // Handle any errors (e.g., component unmounted) to prevent crashing
-      if (isMounted.current) {
         console.error('Animation error:', error.message);
-      }
     }
   };
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,7 +67,7 @@ const Banner = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [bannerImagePaths, controls, animationTypes]);
+  }, [bannerImagePaths, controls, animationTypes, animateBanner]);
 
   useEffect(() => {
     // Call controls.start() after the initial mount
