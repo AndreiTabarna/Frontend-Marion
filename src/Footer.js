@@ -12,7 +12,7 @@ const Footer = () => {
         <p>- Seria I nr. 52883, la OMNIASIG VIENNA INSURANCE GROUP <br />(100.000 euro - valabilă până pe 29 ianuarie 2024);</p>
       </div>
       <div>
-        <h3>Detalii Legale</h3>
+        <h3>Detalii Legale:</h3>
         <p>
           <a href={ContractulCalatorului} download className="contracte">
             CONTRACTUL CALATORULUI
@@ -34,7 +34,7 @@ const Footer = () => {
         <p>Website realizat integral de Tabarna Andrei-Alexandru</p>
       </div>
       <div>
-        <h3>Detalii contact</h3>
+        <h3>Detalii contact:</h3>
         <p>AGENTIA DE TURISM MARION TURISM</p>
         <p>Adresa: Bd. Stefan cel Mare si Sfant Nr. 4, Bl. GULIVER (intrarea cu fata inspre parc)</p>
         <p>Telefon: 0232-267.002 / 0232-258.103 (RDS)</p>

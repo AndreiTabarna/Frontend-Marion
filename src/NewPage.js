@@ -4,7 +4,6 @@ import './NewPageStyles.css';
 import BackButton from './BackButton';
 
 
-window.scrollTo(0, 0);
 const NewPage = () => {
   const location = useLocation();
   const elementId = location?.state?.elementId;
@@ -21,6 +20,7 @@ const handleSimilarElementClick = (elementUrl) => {
 };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         let data;
