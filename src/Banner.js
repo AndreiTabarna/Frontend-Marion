@@ -37,6 +37,7 @@ const Banner = () => {
 
         await controls.start(animationProps);
         setIndex((prevIndex) => (prevIndex + 1) % bannerImagePaths.length);
+        // Smoothly transition to the new state after animation completes
         await controls.start({
           opacity: 1,
           x: '0%',
@@ -58,7 +59,6 @@ const Banner = () => {
     };
   }, [bannerImagePaths, controls, animationTypes]);
 
-  // Move the initial controls.start() call inside a useEffect hook
   useEffect(() => {
     controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
   }, [controls]);
@@ -71,6 +71,7 @@ const Banner = () => {
       className="banner-container"
     >
       <motion.img
+        key={index}
         src={bannerImagePaths[index]}
         alt={`Banner Image ${index + 1}`}
         style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
