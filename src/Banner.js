@@ -53,13 +53,15 @@ const Banner = () => {
       animateBanner();
     }, 5000);
 
-    // Make sure to call controls.start() after the initial mount
-    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
-
     return () => {
       clearInterval(interval);
     };
   }, [bannerImagePaths, controls, animationTypes]);
+
+  // Move the initial controls.start() call inside a useEffect hook
+  useEffect(() => {
+    controls.start({ opacity: 1, x: '0%', scale: 1, transition: { duration: 1.0 } });
+  }, [controls]);
 
   return (
     <motion.div
