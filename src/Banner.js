@@ -52,6 +52,7 @@ const Banner = () => {
       } catch (error) {
         // Handle any errors (e.g., component unmounted) to prevent crashing
           console.error('Animation error:', error.message);
+          
       }
     };
 
