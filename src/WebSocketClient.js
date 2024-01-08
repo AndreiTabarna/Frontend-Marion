@@ -22,7 +22,7 @@ const WebSocketClient = () => {
       
       // Attempt to reconnect on close
       setTimeout(() => {
-        const newSocket = new WebSocket('wss://frontend-marion-production.up.railway.app:5775/ws');
+        const newSocket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
 
         newSocket.addEventListener('open', (event) => {
           console.log('Reconnected:', event);
