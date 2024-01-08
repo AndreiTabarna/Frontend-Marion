@@ -10,7 +10,7 @@ const WebSocketClient = () => {
     // Initialize WebSocket connection only if it hasn't been created
     if (!socketRef.current) {
       // Dummy WebSocket connection
-      socketRef.current = new WebSocket('wss://frontend-marion-production.up.railway.app:5775/ws');
+      socketRef.current = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
 
       // Dummy event listeners (customize as needed)
       socketRef.current.addEventListener('open', (event) => {
@@ -36,7 +36,7 @@ const WebSocketClient = () => {
     };
   }, []);
 
-  return <div>WebSocketClient Dummy Component</div>;
+  return <div></div>;
 };
 
 export default WebSocketClient;
