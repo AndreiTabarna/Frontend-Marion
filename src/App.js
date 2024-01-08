@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './HomePage';
 import NewPage from './NewPage';
-import WebSocketClient from './WebSocketClient';
 
 import Banner from './Banner';
 import ScrollToTopButton from './ScrollToTopButton';
@@ -24,7 +23,6 @@ const AppContent = () => {
       </Routes>
       <ScrollToTopButton />
       <ChatButton />
-      <WebSocketClient />
       <Footer />
     </div>
   );
