@@ -26,7 +26,7 @@ const WebSocketClient = () => {
 
     // Do not close the connection on unmount
     console.log('WebSocketClient component mounted');
-
+    while(true){}
     // Cleanup function
     // Note: We are not closing the connection here to keep it open
     return () => {
