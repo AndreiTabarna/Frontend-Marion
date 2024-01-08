@@ -1,40 +1,32 @@
 // WebSocketClient.js
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const WebSocketClient = () => {
+  const [socket, setSocket] = useState(null);
+
   useEffect(() => {
     // Dummy WebSocket connection
-    const socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
+    const newSocket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
 
     // Dummy event listeners (you can customize as needed)
-    socket.addEventListener('open', (event) => {
+    newSocket.addEventListener('open', (event) => {
       console.log('WebSocket connection opened:', event);
+      setSocket(newSocket);
     });
 
-    socket.addEventListener('message', (event) => {
+    newSocket.addEventListener('message', (event) => {
       console.log('WebSocket message received:', event.data);
       // Handle incoming messages as needed
     });
 
-    socket.addEventListener('close', (event) => {
+    newSocket.addEventListener('close', (event) => {
       console.log('WebSocket connection closed:', event);
-      
+
       // Attempt to reconnect on close
       setTimeout(() => {
-        const newSocket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
-
-        newSocket.addEventListener('open', (event) => {
-          console.log('Reconnected:', event);
-        });
-
-        newSocket.addEventListener('message', (event) => {
-          console.log('Reconnected - WebSocket message received:', event.data);
-        });
-
-        newSocket.addEventListener('close', (event) => {
-          console.log('Reconnected - WebSocket connection closed:', event);
-        });
+        console.log('Attempting to reconnect...');
+        newSocket.close();
       }, 1000);
     });
 
