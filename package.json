@@ -16,7 +16,6 @@
     "react-spring": "^9.7.3",
     "react-whatsapp-button": "^2.0.0",
     "react-whatsapp-widget": "^2.2.0",
-    "reconnecting-websocket": "^4.4.0",
     "styled-components": "^6.1.6",
     "web-vitals": "^2.1.4"
   },
