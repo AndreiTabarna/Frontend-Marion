@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start --port 3001",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "build-no-verify": "react-scripts build --no-verify",
     "test": "react-scripts test",
