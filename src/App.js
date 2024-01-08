@@ -24,7 +24,7 @@ const AppContent = () => {
       </Routes>
       <ScrollToTopButton />
       <ChatButton />
-      </WebSocketProvider>
+      <WebSocketProvider />
       <Footer />
     </div>
   );
