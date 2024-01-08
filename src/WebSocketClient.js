@@ -38,7 +38,7 @@ const WebSocketClient = () => {
       console.log('Cleanup: WebSocketClient component unmounted');
       socket.close();
     };
-  }, []);
+  }, [connectWebSocket]);
 
   return <div></div>;
 };
