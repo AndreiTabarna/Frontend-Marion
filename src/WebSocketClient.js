@@ -2,12 +2,10 @@
 
 import React, { useEffect } from 'react';
 
-let socket;
-
 const WebSocketClient = () => {
   useEffect(() => {
-    // Establish WebSocket connection
-    socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
+    // Dummy WebSocket connection
+    let socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
 
     // Dummy event listeners (you can customize as needed)
     socket.addEventListener('open', (event) => {
@@ -19,21 +17,31 @@ const WebSocketClient = () => {
       // Handle incoming messages as needed
     });
 
-    socket.addEventListener('close', (event) => {
+    const handleWebSocketClose = (event) => {
       console.log('WebSocket connection closed:', event);
-      // Attempt to reconnect after a delay
+      // Attempt to reconnect after a delay if needed
       setTimeout(() => {
-        console.log('Reconnecting...');
         socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
-      }, 2000);
-    });
+        socket.addEventListener('close', handleWebSocketClose);
+      }, 1000);
+    };
+
+    socket.addEventListener('close', handleWebSocketClose);
+
+    // Simulate a persistent connection using setInterval
+    const intervalId = setInterval(() => {
+      if (socket.readyState !== WebSocket.OPEN) {
+        console.warn('WebSocket is not open. Reconnecting...');
+        socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
+        socket.addEventListener('close', handleWebSocketClose);
+      }
+    }, 5000); // Adjust the interval as needed
 
     // Cleanup function
     return () => {
       console.log('Cleanup: WebSocketClient component unmounted');
-      if (socket && socket.readyState === WebSocket.OPEN) {
-        socket.close();
-      }
+      clearInterval(intervalId);
+      socket.close();
     };
   }, []);
 
