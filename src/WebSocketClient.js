@@ -4,6 +4,13 @@ import React, { useEffect } from 'react';
 
 let socket;
 
+const handleWebSocketClose = (event) => {
+  console.log('WebSocket connection closed:', event);
+  // Attempt to reconnect after a delay if needed
+  setTimeout(initWebSocket, 2000);
+};
+
+
 const initWebSocket = () => {
   // Dummy WebSocket connection
   socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
@@ -17,12 +24,6 @@ const initWebSocket = () => {
     console.log('WebSocket message received:', event.data);
     // Handle incoming messages as needed
   });
-
-  const handleWebSocketClose = (event) => {
-    console.log('WebSocket connection closed:', event);
-    // Attempt to reconnect after a delay if needed
-    setTimeout(initWebSocket, 2000);
-  };
 
   socket.addEventListener('close', handleWebSocketClose);
 };
