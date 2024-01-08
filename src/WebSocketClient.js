@@ -27,6 +27,8 @@ const WebSocketClient = () => {
     // Note: We are not closing the connection here to avoid the error
     return () => {
       console.log('Cleanup: WebSocketClient component unmounted');
+      // Comment out the line below to avoid closing the connection
+      // socket.close();
     };
   }, []);
 
