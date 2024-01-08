@@ -14,8 +14,6 @@ const WebSocketClient = () => {
       console.log('WebSocket connection opened:', event);
     });
 
-    while(true){}
-
     socketRef.current.addEventListener('message', (event) => {
       console.log('WebSocket message received:', event.data);
       // Handle incoming messages as needed
