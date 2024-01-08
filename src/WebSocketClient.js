@@ -1,42 +1,35 @@
 // WebSocketClient.js
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useWebSocket } from './WebSocketContext';
 
 const WebSocketClient = () => {
-  // Use a ref to store the WebSocket instance
-  const socketRef = useRef(null);
+  const socket = useWebSocket();
 
   useEffect(() => {
-    // Initialize WebSocket connection only if it hasn't been created
-    if (!socketRef.current) {
-      // Dummy WebSocket connection
-      socketRef.current = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
+    // Dummy event listeners (you can customize as needed)
+    socket.addEventListener('open', (event) => {
+      console.log('WebSocket connection opened:', event);
+    });
 
-      // Dummy event listeners (customize as needed)
-      socketRef.current.addEventListener('open', (event) => {
-        console.log('WebSocket connection opened:', event);
-      });
+    socket.addEventListener('message', (event) => {
+      console.log('WebSocket message received:', event.data);
+    });
 
-      socketRef.current.addEventListener('message', (event) => {
-        console.log('WebSocket message received:', event.data);
-      });
+    socket.addEventListener('close', (event) => {
+      console.log('WebSocket connection closed:', event);
+    });
 
-      socketRef.current.addEventListener('close', (event) => {
-        console.log('WebSocket connection closed:', event);
-      });
-
-      console.log('WebSocketClient component mounted');
-    }
+    console.log('WebSocketClient component mounted');
 
     // Cleanup function
     return () => {
       console.log('Cleanup: WebSocketClient component unmounted');
-      // Commenting out the line below to avoid closing the connection
-      // socketRef.current.close();
+      // Note: Do not close the connection here to keep it open
     };
-  }, []);
+  }, [socket]);
 
-  return <div></div>;
+  return <div>WebSocketClient Dummy Component</div>;
 };
 
 export default WebSocketClient;
