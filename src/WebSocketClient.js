@@ -1,12 +1,12 @@
 // WebSocketClient.js
 
 import React, { useEffect } from 'react';
-import { useWebSocket } from './WebSocketContext';
 
 const WebSocketClient = () => {
-  const socket = useWebSocket();
-
   useEffect(() => {
+    // Dummy WebSocket connection
+    const socket = new WebSocket('wss://frontend-marion-production.up.railway.app:5775/ws');
+
     // Dummy event listeners (you can customize as needed)
     socket.addEventListener('open', (event) => {
       console.log('WebSocket connection opened:', event);
@@ -14,20 +14,25 @@ const WebSocketClient = () => {
 
     socket.addEventListener('message', (event) => {
       console.log('WebSocket message received:', event.data);
+      // Handle incoming messages as needed
     });
 
     socket.addEventListener('close', (event) => {
       console.log('WebSocket connection closed:', event);
+      // Attempt to reconnect on close if needed
+      setTimeout(() => { socket = new WebSocket('wss://frontend-marion-production.up.railway.app:5775/ws'); }, 1000);
     });
 
+    // Do not close the connection on unmount
     console.log('WebSocketClient component mounted');
 
     // Cleanup function
+    // Note: We are not closing the connection here to keep it open
     return () => {
       console.log('Cleanup: WebSocketClient component unmounted');
-      // Note: Do not close the connection here to keep it open
+      // No need to close the connection here
     };
-  }, [socket]);
+  }, []);
 
   return <div>WebSocketClient Dummy Component</div>;
 };
