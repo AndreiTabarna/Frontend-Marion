@@ -5,7 +5,7 @@ import React, { useEffect, useCallback } from 'react';
 const WebSocketClient = () => {
   const connectWebSocket = useCallback(() => {
     // Dummy WebSocket connection
-    const socket = new WebSocket('wss://frontend-marion-production.up.railway.app:5775/ws');
+    const socket = new WebSocket('wss://frontend-marion-production.up.railway.app:3001/ws');
 
     // Dummy event listeners (you can customize as needed)
     socket.addEventListener('open', (event) => {
@@ -40,7 +40,7 @@ const WebSocketClient = () => {
     };
   }, [connectWebSocket]);
 
-  return <div>WebSocketClient Dummy Component</div>;
+  return <div></div>;
 };
 
 export default WebSocketClient;
